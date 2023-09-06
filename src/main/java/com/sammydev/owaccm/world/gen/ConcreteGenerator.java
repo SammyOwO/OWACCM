@@ -29,9 +29,9 @@ public class ConcreteGenerator implements IWorldGenerator
 
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
     // Generate concrete in the world at a specified rate and height range.
-        int chanceToGenerate = 15; // Adjust this value to control the generation frequency.
+        int chanceToGenerate = 90; // Adjust this value to control the generation frequency.
         int minHeight = 32; // Minimum height for concrete generation.
-        int maxHeight = 128; // Maximum height for concrete generation.
+        int maxHeight = 108; // Maximum height for concrete generation.
 
         if (random.nextInt(100) < chanceToGenerate) {
             int x = chunkX * 16 + random.nextInt(16);
