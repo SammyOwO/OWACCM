@@ -1,7 +1,9 @@
 package com.sammydev.owaccm.util.handlers;
 
+import com.sammydev.owaccm.init.BlockInit;
 import com.sammydev.owaccm.util.interfaces.IHasModel;
 import com.sammydev.owaccm.init.ItemInit;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -28,6 +30,19 @@ public class RegistryHandler
                 ((IHasModel)item).registerModels();
             }
         }
+        for(Block block : BlockInit.BLOCKS)
+        {
+            if(block instanceof IHasModel)
+            {
+                ((IHasModel)block).registerModels();
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBlockRegister(RegistryEvent.Register<Block> event)
+    {
+        event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
     }
 
     public static void preInitRegistries()
